@@ -1,0 +1,16 @@
+<h3>{{title}}</h3>
+<br />
+<form action="/boards/{{_id}}/create-post" method="post">
+  <textarea name="comment" cols="40" rows="3"></textarea>
+  <br />
+  <label for="imageURL">
+    <input type="text" name="imageURL" placeholder="Image URL here" />
+  </label>
+  <br />
+  <button type="submit">Post!</button>
+</form>
+
+{{#each posts}}
+  <img src="{{this.imageURL}}" />
+  <p>{{this.comment}}</p>
+{{/each}}
