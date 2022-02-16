@@ -1,0 +1,19 @@
+<form action="/auth/delete/{{_id}}" method="post">
+  <button type="submit">Delete Account</button>
+</form>
+<form action="/auth/edit/{{_id}}" method="POST">
+  <label>
+    Edit Username
+    <input type="text" name="username" />
+  </label>
+  <label>
+    Change Password
+    <input type="password" name="password" />
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}

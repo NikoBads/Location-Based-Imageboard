@@ -2,8 +2,9 @@
 {{#each results}}
   <div>
     <p>Board: {{this.title}}</p>
-    {{!-- {{#each this.posts}}<p>Posts:{{this.comment}}</p>{{/each}} --}}
-    {{this.posts.0.comment}}
+    <div>
+      {{this.posts.0.comment}}
+    </div>
     <a href="/boards/{{this._id}}">Open</a>
   </div>
 {{/each}}

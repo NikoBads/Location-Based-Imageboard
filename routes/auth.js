@@ -129,7 +129,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.render("/");
       });
     })
 
@@ -149,6 +149,32 @@ router.get("/logout", isLoggedIn, (req, res) => {
         .render("auth/logout", { errorMessage: err.message });
     }
     res.redirect("/");
+  });
+});
+
+router.post("/delete/:id", isLoggedIn, (req, res, next) => {
+  User.findOneAndRemove({ _id: req.params.id }, (err) => {
+    console.log("error was found, ", err);
+    req.session.destroy();
+    return res.redirect("/boards");
+  });
+});
+
+router.get("/profile", isLoggedIn, (req, res) => {
+  User.findById(req.session.user._id).then((results) => {
+    res.render("auth/profile", results);
+  });
+});
+
+router.get("/edit/:id", isLoggedIn, (req, res) => {
+  User.findById(req.params.id).then((results) => {
+    res.render("auth/edit", results);
+  });
+});
+
+router.post("/edit/:id", isLoggedIn, (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body).then((results) => {
+    res.redirect("/auth/profile");
   });
 });
 
