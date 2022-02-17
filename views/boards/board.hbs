@@ -1,8 +1,7 @@
-{{#if isLoggedIn}}
-  <a href="/boards">Boards</a>
-{{/if}}
+<a href="/boards">boards</a>
 
 <h3>{{title}}</h3>
+<h4>Talk to people from your part of the world. <br />No account required!</h4>
 <br />
 <form action="/boards/{{_id}}/create-post" method="post">
   <textarea name="comment" cols="40" rows="3"></textarea>
@@ -15,6 +14,7 @@
 </form>
 
 {{#each posts}}
-  <img src="{{this.imageURL}}" />
+  <img src="{{this.imageURL}}" style="height: 200px;" />
   <p>{{this.comment}}</p>
+  <hr />
 {{/each}}

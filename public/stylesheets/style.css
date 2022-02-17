@@ -1,14 +1,14 @@
+h1 {  font-family: sans-serif ;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
+}}
+
+h4{
+  color: brown;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
+}
+.each-board{
+  background-color: rgba(105,10,15,0.6,0.4);
+}
 body {
-  padding: 0;
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: teal;
-}
-
-a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
+  background-image: url("https://s.4cdn.org/image/fade-blue.png")
 }
