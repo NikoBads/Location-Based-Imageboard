@@ -1,3 +1,7 @@
+{{#if isLoggedIn}}
+  <a href="/boards">Boards</a>
+{{/if}}
+
 <h3>{{title}}</h3>
 <br />
 <form action="/boards/{{_id}}/create-post" method="post">

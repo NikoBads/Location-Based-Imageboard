@@ -1,6 +1,9 @@
 <h1>All Boards</h1>
 {{#each results}}
   <div>
+    <form action="/boards/clear/{{this._id}}" method="post">
+      <button type="submit">Clear board</button>
+    </form>
     <p>Board: {{this.title}}</p>
     <div>
       {{this.posts.0.comment}}

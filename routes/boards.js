@@ -11,7 +11,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const res = require("express/lib/response");
 
-router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   Board.find()
     .populate("posts")
     .then((results) => {
@@ -20,21 +20,30 @@ router.get("/", (req, res) => {
     });
 });
 
-///test
-router.get("/test", (req, res) => {
-  // var ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
-  var ip = "23.45.28.156";
-  // console.log(ip);
-  // res.json(ip);
-  axios
-    .get(
-      `https://geo.ipify.org/api/v2/country?apiKey=${process.env.IPACCESSKEY}&ipAddress=${ip}`
-    )
-    .then((results) => {
-      console.log(results.data);
-      res.json(results.data);
-    });
+router.post("/clear/:id", (req, res) => {
+  Board.findByIdAndUpdate(req.params.id, {
+    posts: [],
+  }).then((results) => {
+    console.log(results);
+    res.redirect("/boards");
+  });
 });
+
+///test
+// router.get("/test", (req, res) => {
+// var ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
+// var ip = "23.45.28.156";
+// console.log(ip);
+// res.json(ip);
+//   axios
+//     .get(
+//       `https://geo.ipify.org/api/v2/country?apiKey=${process.env.IPACCESSKEY}&ipAddress=${ip}`
+//     )
+//     .then((results) => {
+//       console.log(results.data);
+//       res.json(results.data);
+//     });
+// });
 
 router.get("/:id", (req, res) => {
   Board.findById(req.params.id)
