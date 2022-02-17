@@ -5,8 +5,8 @@ const router = require("express").Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  // const ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
-  var ip = "23.45.28.156";
+  const ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
+  // var ip = "23.45.28.156";
 
   axios
     .get(
