@@ -16,6 +16,7 @@ router.get("/", (req, res, next) => {
       console.log(results.data);
       Board.findOne({ country: results.data.location.country }).then(
         (foundBoard) => {
+          console.log(foundBoard);
           res.redirect(`/boards/${foundBoard._id}`);
         }
       );

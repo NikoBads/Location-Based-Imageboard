@@ -3,7 +3,10 @@ const Board = require("../models/Board.model");
 
 ////ADD "COUNTRY" INFO
 const boards = [
-  { title: "North America", country: ["US", "AS", "AQ", "AG", "CA", "MX"] },
+  {
+    title: "North America",
+    country: ["ZZ", "US", "AS", "AQ", "AG", "CA", "MX"],
+  },
   {
     title: "South America",
     country: ["AR", "BO", "BR", "CL", "CO", "EC", "SV", "GT", "HN", "HU"],
