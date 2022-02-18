@@ -2,13 +2,21 @@ h1 {  font-family: sans-serif ;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
 }}
 
-h4{
+h3{
   color: brown;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
 }
 .each-board{
   background-color: rgba(105,10,15,0.6,0.4);
 }
 body {
-  background-image: url("https://s.4cdn.org/image/fade-blue.png")
+  background-color: rgb(188, 188, 243)
 }
+
+/* a {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: baseline;
+	align-content: flex-start;
+} */

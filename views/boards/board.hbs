@@ -14,7 +14,9 @@
 </form>
 
 {{#each posts}}
-  <img src="{{this.imageURL}}" style="height: 200px;" />
+  {{#if imageURL}}
+    <img src="{{this.imageURL}}" style="height: 200px;" />
+  {{/if}}
   <p>{{this.comment}}</p>
   <hr />
 {{/each}}
